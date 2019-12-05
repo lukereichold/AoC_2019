@@ -27,3 +27,13 @@ let results1 = monotonicallyIncreasing.filter { candidate in
 
 print(results1.count)
 
+
+let results2 = monotonicallyIncreasing.filter { candidate in
+    let digits = Array(String(candidate))
+    
+    return digits
+        .reduce(into: [:]) { counts, digit in counts[digit, default: 0] += 1}
+        .values
+        .contains(2)
+}.count
+
